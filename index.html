@@ -16,12 +16,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
-        <title>TypeRush 99</title>
+        <title>word-rush</title>
     </head>
     <body>
         <header class="site-header">
           <div class="header-inner">
-             <h1 class="game-title">TypeRush 99</h1>
+             <h1 class="game-title">word-rush</h1>
              <p class="game-tagline">Type as many words as you can in 99 seconds!</p>
             </div>
         </header>
@@ -77,5 +77,25 @@
       </div>
     </section>
     </main>
-    </body>
+        <div
+        id="game-over-modal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="game-over-title"
+        >
+
+        <div class="modal-content">
+            <h2 id="game-over-title">Game Over</h2>
+            <p id="final-message">Nice try!</p>
+            <p id="final-hits">Hits: 0</p>
+            <p id="final-accuracy">Accuracy: 0%</p>
+
+        <div class="modal-actions">
+            <button id="modal-restart-btn" class="btn primary">Play Again</button>
+            <button id="close-modal-btn" class="btn secondary">Close</button>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
