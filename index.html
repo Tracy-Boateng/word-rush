@@ -1,106 +1,94 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="Group 2">
-        <meta name="description" content="School assignment - Word Rush Game">
-        <meta name="keywords" content="html, css, web, web development, javascript">
-        <link rel="icon" href="./assets/media/favicon.png" type="image/x-icon">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Group 2">
+    <meta name="description" content="School assignment - Word Rush Game">
+    <meta name="keywords" content="html, css, web, web development, javascript">
+    <link rel="icon" href="./assets/media/favicon.png" type="image/x-icon">
 
-        
-        <link rel="stylesheet" href="./assets/style/style.css" media="all"> 
-        <script src="./assets/script/app.js" defer></script>
-        
-        <title>Word-Rush</title>
-         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap">
-    </head>
-    <body>
-        <header class="site-header">
-          <div class="header-inner">
-             <h1 class="game-title">word-rush</h1>
-             <p class="game-tagline">Type as many words as you can in 99 seconds!</p>
-            </div>
-        </header>
-        
-        <main class="game-main">
-            <section class="hud" aria-label="Game stats">
-                <div class="hud-item">
-               <p class="hud-label">Time</p>
-                <p id="time-remaining" class="hud-value">99</p>
-            </div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
 
-        <div class="hud-item">
-            <p class="hud-label">Hits</p>
-            <p id="hits" class="hud-value">0</p> 
-        </div>
+    <link rel="stylesheet" href="./assets/style/style.css" media="all">
+    <script src="./assets/script/app.js" defer></script>
 
-        <div class="hud-item">
-            <p class="hud-label">Accuracy</p>
-            <p id="accuracy" class="hud-value">0%</p>
-        </div>
-        </section>
+    <title>Word-Rush</title>
+  </head>
 
-    <section class="word-section">
-      <p class="instruction">
-        Press Start Game, then type the word below and press Enter.
-      </p>
-    </section>
+  <body>
 
-
-      <div id="current-word" class="current-word">
-        Press Start to begin
+    <header class="site-header">
+      <div class="header-inner">
+        <h1 class="game-title">word-rush</h1>
+        <p class="game-tagline">Type as many words as you can in 99 seconds!</p>
       </div>
+    </header>
+
+    <main class="game-main">
+
+      <section class="hud" aria-label="Game stats">
+        <div class="hud-item">
+          <p class="hud-label">Time</p>
+          <p id="time-remaining" class="hud-value">99</p>
+        </div>
+
+        <div class="hud-item">
+          <p class="hud-label">Hits</p>
+          <p id="hits" class="hud-value">0</p>
+        </div>
+
+        <div class="hud-item">
+          <p class="hud-label">Accuracy</p>
+          <p id="accuracy" class="hud-value">0%</p>
+        </div>
+      </section>
+
+      <section class="word-section">
+        <p class="instruction">Press Start Game, then type the word below and press Enter.</p>
+
+        <div id="current-word" class="current-word">Press Start to begin</div>
 
         <input
-        type="text"
-        id="word-input"
-        class="word-input"
-        placeholder="Type the word here..."
-        autocomplete="off"
-        disabled
-        />
-    </section>
-    <section class="controls" aria-label="Game controls">
-      <button id="start-btn" class="btn primary">Start Game</button>
-      <button id="restart-btn" class="btn secondary" disabled>Restart</button>
-      <button id="mute-btn" class="btn ghost" aria-pressed="false">
-         Sound
-      </button>
-    </section>
-    <section class="scoreboard" aria-label="Previous scores">
-      <h2 class="section-title">Last Game Score</h2>
-      <div id="last-score" class="score-summary">
-        <!-- we can inject: date, hits, percentage for javascript -->
-        <p>No games played yet.</p>
-      </div>
-    </section>
-    </main>
-        <div
-        id="game-over-modal"
-        class="modal hidden"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="game-over-title"
+          type="text"
+          id="word-input"
+          class="word-input"
+          placeholder="Type the word here..."
+          autocomplete="off"
+          disabled
         >
+      </section>
 
-        <div class="modal-content">
-            <h2 id="game-over-title">Game Over</h2>
-            <p id="final-message">Nice try!</p>
-            <p id="final-hits">Hits: 0</p>
-            <p id="final-accuracy">Accuracy: 0%</p>
+      <section class="controls" aria-label="Game controls">
+        <button id="start-btn" class="btn primary">Start Game</button>
+        <button id="restart-btn" class="btn secondary" disabled>Restart</button>
+        <button id="mute-btn" class="btn ghost" aria-pressed="false">Sound</button>
+      </section>
+
+      <section class="scoreboard" aria-label="Previous scores">
+        <h2 class="section-title">Last Game Score</h2>
+        <div id="last-score" class="score-summary">
+          <p>No games played yet.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <div id="game-over-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="game-over-title">
+      <div class="modal-content">
+        <h2 id="game-over-title">Game Over</h2>
+        <p id="final-message">Nice try!</p>
+        <p id="final-hits">Hits: 0</p>
+        <p id="final-accuracy">Accuracy: 0%</p>
 
         <div class="modal-actions">
-            <button id="modal-restart-btn" class="btn primary">Play Again</button>
-            <button id="close-modal-btn" class="btn secondary">Close</button>
+          <button id="modal-restart-btn" class="btn primary">Play Again</button>
+          <button id="close-modal-btn" class="btn secondary">Close</button>
+        </div>
       </div>
     </div>
-  </div>
 
-    
-
-    
-</body>
+  </body>
 </html>
