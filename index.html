@@ -16,7 +16,90 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
-        <title>Home</title>
+        <title>word-rush</title>
     </head>
-    <body></body>
+    <body>
+        <header class="site-header">
+          <div class="header-inner">
+             <h1 class="game-title">word-rush</h1>
+             <p class="game-tagline">Type as many words as you can in 99 seconds!</p>
+            </div>
+        </header>
+        
+        <main class="game-main">
+            <section class="hud" aria-label="Game stats">
+                <div class="hud-item">
+                <span class="hud-label">Time</span>
+                <span id="time-remaining" class="hud-value">99</span>
+            </div>
+
+        <div class="hud-item">
+            <span class="hud-label">Hits</span>
+            <span id="hits" class="hud-value">0</span> 
+        </div>
+
+        <div class="hud-item">
+            <span class="hud-label">Accuracy</span>
+            <span id="accuracy" class="hud-value">0%</span>
+        </div>
+        </section>
+
+    <section class="word-section" aria-label="Typing area">
+      <p class="instruction">
+        Press <strong>Start Game</strong>, then type the word below and press <strong>Enter</strong>.
+      </p>
+
+      <div id="current-word" class="current-word">
+        Press Start to begin
+      </div>
+
+        <input
+        type="text"
+        id="word-input"
+        class="word-input"
+        placeholder="Type the word here..."
+        autocomplete="off"
+        disabled
+        />
+    </section>
+    <section class="controls" aria-label="Game controls">
+      <button id="start-btn" class="btn primary">Start Game</button>
+      <button id="restart-btn" class="btn secondary" disabled>Restart</button>
+      <button id="mute-btn" class="btn ghost" aria-pressed="false">
+         Sound
+      </button>
+    </section>
+    <section class="scoreboard" aria-label="Previous scores">
+      <h2 class="section-title">Last Game Score</h2>
+      <div id="last-score" class="score-summary">
+        <!-- we can inject: date, hits, percentage -->
+        <p>No games played yet.</p>
+      </div>
+    </section>
+    </main>
+        <div
+        id="game-over-modal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="game-over-title"
+        >
+
+        <div class="modal-content">
+            <h2 id="game-over-title">Game Over</h2>
+            <p id="final-message">Nice try!</p>
+            <p id="final-hits">Hits: 0</p>
+            <p id="final-accuracy">Accuracy: 0%</p>
+
+        <div class="modal-actions">
+            <button id="modal-restart-btn" class="btn primary">Play Again</button>
+            <button id="close-modal-btn" class="btn secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+     <audio id="bg-music" src="./assets/media/audio/" loop></audio>
+
+    <script type="module" src="./assets/script/app.js"></script>
+</body>
 </html>
