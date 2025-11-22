@@ -28,5 +28,5 @@ At the end, the game shows your score, including how many words you got right an
 ## Team Members
 **Group 2:** Daljit, Tracy, Qin
 
-## live link :
+## Live Link :
 
