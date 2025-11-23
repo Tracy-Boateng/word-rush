@@ -60,6 +60,14 @@ const words =
 'bookstore', 'language', 'homework', 'fantastic', 'economy', 'interview', 'awesome', 'challenge', 'science', 'mystery',
 'famous', 'league', 'memory', 'leather', 'planet', 'software', 'update', 'yellow', 'keyboard', 'window'];
 
+//initializing variables.
+let gameWords = [];
+let currentIndex = 0;
+let hits = 0;
+let totalTyped = 0;
+let timeLeft = 99;
+let timeEachsecond = null;
+
 // Shuffle function//
 let shuffle = function(array) {
   let currentIndex = array.length, temporaryValue, randomIndex;
@@ -76,7 +84,7 @@ let shuffle = function(array) {
 };
 
 function startGame() {
-    gameWords = shuffle([words]); //run shuffle function and make sure we shuffle the words array every time
+    gameWords = shuffle([...words]); //run shuffle function and make sure we shuffle the words array every time
     currentIndex = 0;
     hits = 0;
     totalTyped = 0;
@@ -108,6 +116,10 @@ function startGame() {
     // Optional: background music
     // backgroundMusic.play();
 }
+listen(startBtn, "click", function () {
+    startGame();
+});
+
 
 
 function startTimer() {
@@ -123,7 +135,17 @@ function startTimer() {
     }
 }, 1000);
 }
+listen(restartBtn, "click", function () {
+    clearInterval(timeEachsecond);
+    startGame();
+});
 
+// construct the users input-check function
+listen(wordInput, "keydown", function (keyEnter) {
+    if (keyEnter.key === "Enter") {
+        checkInput();
+    }
+});
 
 
 
