@@ -1,6 +1,24 @@
 'use strict';
 import { select, selectAll, listen } from './utils.js';
 
+class Score {
+    #date;
+    #hits;
+    #percentage;
+
+    constructor(date, hits, percentage) {
+        this.#date = date;
+        this.#hits = hits;
+        this.#percentage = percentage;
+    }
+
+get date() {return this.#date;}
+
+get hits() {return this.#hits;}
+
+get percentage() {return this.#percentage;}
+}
+
 // HUD elements
 const timeRemaining = select('#time-remaining');
 const hitsDisplay = select('#hits');
@@ -45,8 +63,6 @@ let shuffle = function(array) {
   while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
-
-    // Swap
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
