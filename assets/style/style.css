@@ -96,3 +96,50 @@ body {
   background: #d76bff;
   color: #fff;
 }
+.secondary {
+  background: #4c4c4c;
+  color: #fff;
+}
+
+.ghost {
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #fff;
+}
+.section-title {
+  margin-top: 40px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.score-summary {
+  margin-top: 15px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  text-align: center;
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 400px;
+  background: #1f1f2b;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal-actions {
+  margin-top: 20px;
+}
