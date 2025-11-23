@@ -16,3 +16,15 @@ body {
   padding: 30px 0;
   text-align: center;
 }
+.game-title {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffb7ff;
+}
+.game-tagline {
+  margin-top: 5px;
+  font-size: 18px;
+  opacity: 0.85;
+}
