@@ -164,3 +164,67 @@ body {
     padding: 10px 12px;
   }
 }
+@media (max-width: 600px) {
+
+  .site-header {
+    padding: 20px 0;
+  }
+
+  .game-title {
+    font-size: 30px;
+  }
+
+  .game-tagline {
+    font-size: 14px;
+  }
+
+  .hud {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .hud-item {
+    width: 100%;
+  }
+
+  .current-word {
+    font-size: 24px;
+    padding: 12px 14px;
+  }
+
+  .word-input {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+}
+@media (max-width: 400px) {
+
+  .game-title {
+    font-size: 26px;
+  }
+
+  .current-word {
+    font-size: 20px;
+  }
+
+  .word-input {
+    font-size: 14px;
+  }
+}
