@@ -143,3 +143,24 @@ body {
 .modal-actions {
   margin-top: 20px;
 }
+@media (max-width: 900px) {
+
+  .game-main {
+    max-width: 600px;
+    padding: 15px;
+  }
+
+  .hud {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .current-word {
+    font-size: 28px;
+  }
+
+  .word-input {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+}
