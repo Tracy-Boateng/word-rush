@@ -19,6 +19,10 @@ get hits() {return this.#hits;}
 get percentage() {return this.#percentage;}
 }
 
+
+
+//Select or create all variables will be used later.
+
 // HUD elements
 const timeRemaining = select('#time-remaining');
 const hitsDisplay = select('#hits');
@@ -70,3 +74,5 @@ let shuffle = function(array) {
 
   return array;
 };
+
+function startGame() {}
