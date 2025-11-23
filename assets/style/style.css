@@ -28,3 +28,35 @@ body {
   font-size: 18px;
   opacity: 0.85;
 }
+.game-main {
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.hud {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.hud-item {
+  text-align: center;
+}
+
+.hud-label {
+  font-size: 14px;
+  color: #d1c4ff;
+}
+
+.hud-value {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.word-section {
+  text-align: center;
+  margin: 30px 0;
+}
