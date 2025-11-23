@@ -75,4 +75,58 @@ let shuffle = function(array) {
   return array;
 };
 
-function startGame() {}
+function startGame() {
+    gameWords = shuffle([words]); //run shuffle function and make sure we shuffle the words array every time
+    currentIndex = 0;
+    hits = 0;
+    totalTyped = 0;
+    timeLeft = 99;
+
+    //for updating the HUD page in every new game.
+    hitsDisplay.textContent = hits;
+    accuracyDisplay.textContent = "0%";
+    timeRemaining.textContent = timeLeft;   
+
+  
+    // Show the first word in this new game
+    currentWord.textContent = gameWords[currentIndex]; 
+    
+    // Make sure palyers are able to input words
+    wordInput.disabled = false;
+    wordInput.value = "";
+    wordInput.focus();  
+
+    // Adjust button states
+    startBtn.disabled = true;
+    restartBtn.disabled = false;    
+    
+    // Initializing the time
+    startTimer();
+ 
+
+  
+    // Optional: background music
+    // backgroundMusic.play();
+}
+
+
+function startTimer() {
+    timeLeft = 99;
+
+    timeEachsecond = setInterval(function() {
+        timeLeft--;
+        timeRemaining.textContent = timeLeft;
+
+        if (timeLeft <= 0) {  
+            clearInterval(timeEachsecond);
+            gameOver();
+    }
+}, 1000);
+}
+
+
+
+
+
+
+
