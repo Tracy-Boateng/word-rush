@@ -141,14 +141,82 @@ listen(restartBtn, "click", function () {
 });
 
 // construct the users input-check function
+
 listen(wordInput, "keydown", function (keyEnter) {
     if (keyEnter.key === "Enter") {
         checkInput();
     }
 });
 
+function checkInput() {
+    const correctWord = gameWords[currentIndex];
+    const userWord = wordInput.value.trim();
+    totalTyped++;
+        if (userWord === correctWord) {
+            hits++;
+            hitsDisplay.textContent = hits;
+    }
+
+    updateAccuracy();
+
+    wordInput.value = "";
+
+    nextWord();
+}
+
+function updateAccuracy() {
+    if (totalTyped === 0) {
+        accuracyDisplay.textContent = "0%";
+        return;
+    }
+
+    const acc = ((hits / totalTyped) * 100).toFixed(2);
+    accuracyDisplay.textContent = acc + "%";
+}
 
 
+function nextWord() {
+    currentIndex++;
+    if (currentIndex >= gameWords.length) {
+        gameOver();
+        return;
+    }
+    currentWord.textContent = gameWords[currentIndex];
+}
 
+
+function gameOver() {
+    clearInterval(timeEachsecond);
+    wordInput.disabled = true;
+    finalMessage.textContent = "Game Over!";
+    finalHits.textContent = hits;
+
+    let finalAcc = totalTyped === 0 ? 0 : ((hits / totalTyped) * 100).toFixed(2);
+    finalAccuracy.textContent = finalAcc + "%";
+
+
+    const now = new Date().toLocaleString();
+    const lastScore = new Score(now, hits, finalAcc);
+
+
+    lastScoreBox.textContent =
+        `Date: ${lastScore.date} | Hits: ${lastScore.hits} | Accuracy: ${lastScore.percentage}%`;
+
+
+    gameOverModal.style.display = "block";
+
+
+    restartBtn.disabled = false;
+}
+
+listen(closeModalBtn, "click", function () {
+    gameOverModal.style.display = "none";
+});
+
+listen(modalRestartBtn, "click", function () {
+    gameOverModal.style.display = "none";
+    clearInterval(timeEachsecond);
+    startGame();
+});
 
 
