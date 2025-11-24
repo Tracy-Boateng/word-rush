@@ -113,8 +113,9 @@ function startGame() {
  
 
   
-    // Optional: background music
-    // backgroundMusic.play();
+
+    // Need to add background music and other functions later
+    
 }
 listen(startBtn, "click", function () {
     startGame();
@@ -123,7 +124,7 @@ listen(startBtn, "click", function () {
 
 
 function startTimer() {
-    timeLeft = 99;
+    timeLeft = 2;
 
     timeEachsecond = setInterval(function() {
         timeLeft--;
@@ -139,6 +140,8 @@ listen(restartBtn, "click", function () {
     clearInterval(timeEachsecond);
     startGame();
 });
+
+
 
 // construct the users input-check function
 
@@ -185,6 +188,8 @@ function nextWord() {
 }
 
 
+
+//  the end of game
 function gameOver() {
     clearInterval(timeEachsecond);
     wordInput.disabled = true;
@@ -199,8 +204,8 @@ function gameOver() {
     const lastScore = new Score(now, hits, finalAcc);
 
 
-    lastScoreBox.textContent =
-        `Date: ${lastScore.date} | Hits: ${lastScore.hits} | Accuracy: ${lastScore.percentage}%`;
+    lastScoreBox.innerHTML =
+        `Date: ${lastScore.date}&nbsp&nbsp&nbsp&nbsp&nbsp;  Hits: ${lastScore.hits}&nbsp&nbsp&nbsp&nbsp&nbsp;  Accuracy: ${lastScore.percentage}%`;
 
 
     gameOverModal.style.display = "block";
