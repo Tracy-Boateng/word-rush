@@ -67,6 +67,12 @@ let hits = 0;
 let totalTyped = 0;
 let timeLeft = 99;
 let timeEachsecond = null;
+const bgm = new Audio('./assets/media/background.mp3');
+bgm.type = 'audio/mp3';
+bgm.loop = true;
+
+const correct = new Audio('./assets/media/correct.mp3');
+const wrong = new Audio('./assets/media/wrong.mp3');
 
 // Shuffle function//
 let shuffle = function(array) {
@@ -89,6 +95,8 @@ function startGame() {
     hits = 0;
     totalTyped = 0;
     timeLeft = 99;
+    bgm.currentTime = 0;
+    bgm.play();
 
     //for updating the HUD page in every new game.
     hitsDisplay.textContent = hits;
@@ -124,7 +132,7 @@ listen(startBtn, "click", function () {
 
 
 function startTimer() {
-    timeLeft = 2;
+    timeLeft = 99;
 
     timeEachsecond = setInterval(function() {
         timeLeft--;
@@ -155,17 +163,22 @@ function checkInput() {
     const correctWord = gameWords[currentIndex];
     const userWord = wordInput.value.trim();
     totalTyped++;
-        if (userWord === correctWord) {
-            hits++;
-            hitsDisplay.textContent = hits;
+    if (userWord === correctWord) {
+        hits++;
+        hitsDisplay.textContent = hits;
+        correct.play();
+        currentWord.classList.add("smash");
+        setTimeout(() => currentWord.classList.remove("smash"), 500);
+        updateAccuracy();
+        wordInput.value = "";
+        nextWord();
+        return;
     }
-
+    wrong.play();
     updateAccuracy();
-
     wordInput.value = "";
-
-    nextWord();
 }
+
 
 function updateAccuracy() {
     if (totalTyped === 0) {
@@ -203,15 +216,14 @@ function gameOver() {
     const now = new Date().toLocaleString();
     const lastScore = new Score(now, hits, finalAcc);
 
-
     lastScoreBox.innerHTML =
         `Date: ${lastScore.date}&nbsp&nbsp&nbsp&nbsp&nbsp;  Hits: ${lastScore.hits}&nbsp&nbsp&nbsp&nbsp&nbsp;  Accuracy: ${lastScore.percentage}%`;
 
-
     gameOverModal.style.display = "block";
-
-
     restartBtn.disabled = false;
+
+    bgm.pause();
+    bgm.currentTime = 0;
 }
 
 listen(closeModalBtn, "click", function () {
@@ -223,5 +235,7 @@ listen(modalRestartBtn, "click", function () {
     clearInterval(timeEachsecond);
     startGame();
 });
+
+
 
 

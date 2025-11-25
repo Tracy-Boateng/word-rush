@@ -214,6 +214,26 @@ body {
     padding: 20px;
   }
 }
+
+.smash {
+  animation: smashEffect 0.05s ease-out;
+}
+
+@keyframes smashEffect {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.35) rotate(-8deg);
+    filter: brightness(2.2);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    filter: brightness(1);
+  }
+}
+
 @media (max-width: 400px) {
 
   .game-title {
