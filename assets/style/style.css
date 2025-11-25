@@ -127,6 +127,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .modal.hidden {
   display: none;
 }

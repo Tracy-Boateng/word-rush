@@ -46,7 +46,6 @@ const finalAccuracy = select('#final-accuracy');
 const modalRestartBtn = select('#modal-restart-btn');
 const closeModalBtn = select('#close-modal-btn');
 
-
 // 90 Words Array//
 const words =
 
@@ -215,21 +214,32 @@ function gameOver() {
     lastScoreBox.innerHTML =
         `Date: ${lastScore.date}&nbsp&nbsp&nbsp&nbsp&nbsp;  Hits: ${lastScore.hits}&nbsp&nbsp&nbsp&nbsp&nbsp;  Accuracy: ${lastScore.percentage}%`;
 
-    gameOverModal.style.display = "block";
     restartBtn.disabled = false;
 
     bgm.pause();
     bgm.currentTime = 0;
+    gameOverModal.classList.remove("hidden");
 }
 
 listen(closeModalBtn, "click", function () {
-    gameOverModal.style.display = "none";
+    gameOverModal.classList.add("hidden");
 });
 
 listen(modalRestartBtn, "click", function () {
-    gameOverModal.style.display = "none";
+    gameOverModal.classList.add("hidden");
     clearInterval(timeEachsecond);
     startGame();
+});
+
+
+listen(muteBtn, "click", function () {
+    if (bgm.paused) {
+        bgm.play();
+        muteBtn.textContent = "Sound: ON";
+    } else {
+        bgm.pause();
+        muteBtn.textContent = "Sound: OFF";
+    }
 });
 
 
