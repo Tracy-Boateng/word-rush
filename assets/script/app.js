@@ -118,12 +118,6 @@ function startGame() {
     
     // Initializing the time
     startTimer();
- 
-
-  
-
-    // Need to add background music and other functions later
-    
 }
 listen(startBtn, "click", function () {
     startGame();
@@ -163,12 +157,13 @@ function checkInput() {
     const correctWord = gameWords[currentIndex];
     const userWord = wordInput.value.trim();
     totalTyped++;
+
     if (userWord === correctWord) {
         hits++;
         hitsDisplay.textContent = hits;
         correct.play();
-        currentWord.classList.add("smash");
-        setTimeout(() => currentWord.classList.remove("smash"), 500);
+        currentWord.classList.add("up-jump");
+        setTimeout(() => currentWord.classList.remove("up-jump"), 1000);
         updateAccuracy();
         wordInput.value = "";
         nextWord();
@@ -177,6 +172,7 @@ function checkInput() {
     wrong.play();
     updateAccuracy();
     wordInput.value = "";
+    nextWord();
 }
 
 

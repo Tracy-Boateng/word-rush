@@ -215,21 +215,21 @@ body {
   }
 }
 
-.smash {
-  animation: smashEffect 0.05s ease-out;
+.up-jump {
+  animation: upJump 0.5s ease-out;
 }
 
-@keyframes smashEffect {
+@keyframes upJump {
   0% {
-    transform: scale(1) rotate(0deg);
+    transform: translateY(0) scale(1);
     filter: brightness(1);
   }
-  50% {
-    transform: scale(1.35) rotate(-8deg);
-    filter: brightness(2.2);
+  40% {
+    transform: translateY(-12px) scale(1.05);
+    filter: brightness(1.4);
   }
   100% {
-    transform: scale(1) rotate(0deg);
+    transform: translateY(0) scale(1);
     filter: brightness(1);
   }
 }
