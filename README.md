@@ -1,6 +1,9 @@
 ### Word Rush 🏃⌨️
 Word Rush is a fast-typing game created for the Final Project assignment. Players type randomized words within a 99-second timer, and the game tracks hits and accuracy.
 ---
+![alt text](./assets/media/image.png)
+
+
 ## 🎮 How to Play
 1. Click **Start**.
 2. Type the displayed word and press Enter.
