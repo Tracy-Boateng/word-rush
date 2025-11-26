@@ -1,16 +1,21 @@
 @import url("./reset.css");
 body {
   min-height: 100vh;
-  background-size: cover;
-   background:
+ 
+  background:
     linear-gradient(135deg, rgba(10, 2, 25, 0.85), rgba(6, 12, 28, 0.85)),
     url("../media/bground.png") no-repeat center center fixed;
-     font-family: "Roboto", sans-serif;
+ 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+ 
+  font-family: "Roboto", sans-serif;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .site-header {
   width: 100%;
   padding: 30px 0;
@@ -127,6 +132,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .modal.hidden {
   display: none;
 }
@@ -214,6 +220,26 @@ body {
     padding: 20px;
   }
 }
+
+.up-jump {
+  animation: upJump 0.5s ease-out;
+}
+
+@keyframes upJump {
+  0% {
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
+  }
+  40% {
+    transform: translateY(-12px) scale(1.05);
+    filter: brightness(1.4);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
+  }
+}
+
 @media (max-width: 400px) {
 
   .game-title {
