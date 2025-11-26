@@ -66,7 +66,7 @@ let hits = 0;
 let totalTyped = 0;
 let timeLeft = 99;
 let timeEachsecond = null;
-const bgm = new Audio('./assets/media/audio/background.mp3');
+const bgm = new Audio('./assets/media/audio/Background.mp3');
 bgm.type = 'audio/mp3';
 bgm.loop = true;
 
