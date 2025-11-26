@@ -258,6 +258,7 @@ listen(modalRestartBtn, "click", function () {
 });
 
 
+
 listen(muteBtn, "click", function () {
     if (bgm.paused) {
         bgm.play();

@@ -32,4 +32,5 @@ At the end, the game shows your score, including how many words you got right an
 **Group 2:** Daljit, Tracy, Qin
 
 ## Live Link :
+https://tracy-boateng.github.io/word-rush/
 
