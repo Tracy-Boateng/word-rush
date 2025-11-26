@@ -66,12 +66,12 @@ let hits = 0;
 let totalTyped = 0;
 let timeLeft = 99;
 let timeEachsecond = null;
-const bgm = new Audio('./assets/media/background.mp3');
+const bgm = new Audio('./assets/media/audio/background.mp3');
 bgm.type = 'audio/mp3';
 bgm.loop = true;
 
-const correct = new Audio('./assets/media/correct.mp3');
-const wrong = new Audio('./assets/media/wrong.mp3');
+const correct = new Audio('./assets/media/audio/correct.mp3');
+const wrong = new Audio('./assets/media/audio/wrong.mp3');
 
 // Shuffle function//
 let shuffle = function(array) {
@@ -144,13 +144,39 @@ listen(restartBtn, "click", function () {
 
 
 
-// construct the users input-check function
+
 
 listen(wordInput, "keydown", function (keyEnter) {
     if (keyEnter.key === "Enter") {
         checkInput();
     }
-});
+}); 
+
+listen(wordInput, "input", autoCheck);
+
+
+function autoCheck() {
+    const correctWord = gameWords[currentIndex];
+    const typed = wordInput.value.trim();
+
+    
+    if (typed === correctWord) {
+        totalTyped++;
+        hits++;
+        hitsDisplay.textContent = hits;
+        correct.play();
+        updateAccuracy();
+
+        
+        currentWord.classList.add("up-jump");
+        setTimeout(() => currentWord.classList.remove("up-jump"), 1000);
+
+       
+        wordInput.value = "";
+        nextWord();
+    }
+}
+
 
 function checkInput() {
     const correctWord = gameWords[currentIndex];
