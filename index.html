@@ -64,14 +64,19 @@
         <button id="start-btn" class="btn primary">Start Game</button>
         <button id="restart-btn" class="btn secondary" disabled>Restart</button>
         <button id="mute-btn" class="btn ghost" aria-pressed="false">Sound</button>
-      </section>
+       </section>
 
-      <section class="scoreboard" aria-label="Previous scores">
-        <h2 class="section-title">Last Game Score</h2>
-        <div id="last-score" class="score-summary">
-          <p>No games played yet.</p>
-        </div>
+      <section class="sidebar">
+        <section class="scoreboard">
+          <h2>Last Game Score</h2>
+          <div id="last-score">No games played yet.</div>
+        </section>
+
+      <section class="top-scores">
+        <h2>Top 10 Scores</h2>
+        <ol id="top-score-list" class="score-list"></ol>
       </section>
+      
 
     </main>
 
