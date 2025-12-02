@@ -112,9 +112,9 @@ body {
   color: #fff;
 }
 .section-title {
-  margin-top: 40px;
-  font-size: 24px;
-  text-align: center;
+  margin-top: 10px;   
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .score-summary {
@@ -300,8 +300,8 @@ body {
 .sidebar {
   width: 300px;
   padding: 25px;
-   margin-top: 40px;     
-    margin-right: 80px; 
+  margin-top: -20px;     
+  margin-right: 80px;
   background: rgba(0,0,0,0.45);
   border-radius: 16px;
   backdrop-filter: blur(10px);
@@ -310,7 +310,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
 }
 
 

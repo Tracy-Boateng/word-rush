@@ -1,5 +1,6 @@
 ### Word Rush 🏃⌨️
 Word Rush is a fast-typing game created for the Final Project assignment. Players type randomized words within a 99-second timer, and the game tracks hits and accuracy.
+This now includes the full **High Score system** required for **Assignment 3**, including localStorage, sorting, scoreboard UI, and updated styling.
 ---
 ![alt text](./assets/media/image.png)
 
@@ -33,4 +34,17 @@ At the end, the game shows your score, including how many words you got right an
 
 ## Live Link :
 https://tracy-boateng.github.io/word-rush/
+## Assignment -3
+updated Link :
 
+- **Last Game Score** panel  
+- **Top 10 High Scores** saved using `localStorage`  
+- High scores stored as objects containing:
+  - Hits  
+  - Accuracy  
+  - Date & time  
+- Automatic sorting:
+  1. Highest hits  
+  2. Highest accuracy  
+- Automatically removes scores beyond the top 10  
+![alt text](./assets/media/assignmnent3.png
