@@ -47,4 +47,4 @@ updated Link :
   1. Highest hits  
   2. Highest accuracy  
 - Automatically removes scores beyond the top 10  
-![alt text](./assets/media/assignmnent3.png
+![alt text](./assets/media/assignmnent3.png)
