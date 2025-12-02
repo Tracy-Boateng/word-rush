@@ -26,6 +26,7 @@
         <p class="game-tagline">Type as many words as you can in 99 seconds!</p>
       </div>
     </header>
+      <div class="page-layout">
     <main class="game-main">
      <section class="hud" aria-label="Game stats">
 
@@ -65,8 +66,10 @@
         <button id="restart-btn" class="btn secondary" disabled>Restart</button>
         <button id="mute-btn" class="btn ghost" aria-pressed="false">Sound</button>
       </section>
+      </main>
 
-      <section class="sidebar">
+
+      <aside class="sidebar">
 
   
       <section class="scoreboard" aria-label="Previous scores">
@@ -82,9 +85,10 @@
         <ol id="top-score-list" class="score-list"></ol>
       </section>
 
-      </section>
+      </aside>
+    </div>
 
-    </main>
+    
 
     <div id="game-over-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="game-over-title">
       <div class="modal-content">

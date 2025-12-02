@@ -253,4 +253,71 @@ body {
   .word-input {
     font-size: 14px;
   }
+  
+}
+/* Assignment */
+
+.page-layout {
+  display: flex;               
+  justify-content: center;     
+  align-items: flex-start;     
+  gap: 40px;                   
+  width: 100%;
+  margin-top: 20px;
+}
+
+
+
+.game-main {
+  flex: 1;
+  max-width: 850px;           
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+
+
+.sidebar {
+  width: 300px;
+  padding: 25px;
+   margin-top: 40px;     
+    margin-right: 80px; 
+  background: rgba(0,0,0,0.45);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+
+
+.sidebar .section-title {
+  margin-bottom: 12px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+
+
+@media (max-width: 900px) {
+  .page-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    width: 90%;
+    margin-top: 25px;
+  }
+
+  .game-main {
+    width: 90%;
+  }
 }
