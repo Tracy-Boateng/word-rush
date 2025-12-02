@@ -255,6 +255,23 @@ body {
   }
   
 }
+
+@media (max-width: 900px) {
+  .page-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    width: 90%;
+    margin-top: 25px;
+  }
+
+  .game-main {
+    width: 90%;
+  }
+}
+
 /* Assignment */
 
 .page-layout {
@@ -306,18 +323,53 @@ body {
 
 
 
-@media (max-width: 900px) {
-  .page-layout {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sidebar {
-    width: 90%;
-    margin-top: 25px;
-  }
-
-  .game-main {
-    width: 90%;
-  }
+/* High Scores classes added（for displayTopScores in JS) */
+.score-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
+
+.score-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+.score-rank {
+    font-size: 20px;
+    font-weight: bold;
+    color: #deb4de;
+    width: 40px;
+    text-align: center;
+    padding: 18px 0 0 0;
+}
+
+.score-details {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.score-date {
+    margin-top: 4px;
+    opacity: 0.6;
+    font-size: 12px;
+}
+
+.empty-score-msg {
+    text-align: center;
+    opacity: 0.7;
+    padding: 10px;
+}
+
+.date-small {
+    font-size: 14px;
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+
+
