@@ -324,7 +324,7 @@ function displayTopScores() {
     topScoreList.innerHTML = '';
 
     if (highScores.length === 0) {
-        topScoreList.innerHTML = `<li class="empty-score-msg">There is no recording yet! </li>`;
+        topScoreList.innerHTML = `<li class="empty-score-msg">No scores yet!</li>`;
         return;
     }
 
@@ -334,16 +334,16 @@ function displayTopScores() {
 
         li.innerHTML = `
             <span class="score-rank">#${index + 1}</span>
-            <div class="score-details">
-                <div><strong>hits:</strong> ${score.hits}</div>
-                <div><strong>percentage:</strong> ${score.percentage}%</div>
-                <div class="score-date">${score.date}</div>
-            </div>
+            <span class="score-hits">${score.hits} words</span>
+            <span class="score-percentage">${score.percentage}%</span>
         `;
 
         topScoreList.appendChild(li);
     });
 }
+
+
+
 
 loadHighScores();
 displayTopScores();

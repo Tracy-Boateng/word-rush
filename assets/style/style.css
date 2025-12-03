@@ -1,19 +1,17 @@
 @import url("./reset.css");
+
 body {
   min-height: 100vh;
- 
-  background:
+  background: 
     linear-gradient(135deg, rgba(10, 2, 25, 0.85), rgba(6, 12, 28, 0.85)),
     url("../media/bground.png") no-repeat center center fixed;
- 
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
- 
+  background-size: cover;
   font-family: "Roboto", sans-serif;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
 }
 
 .site-header {
@@ -33,12 +31,21 @@ body {
   font-size: 18px;
   opacity: 0.85;
 }
+
+
 .game-main {
+  flex: 1;
   width: 100%;
-  max-width: 700px;
-  padding: 20px;
+  max-width: 850px;
+  padding: 30px;
   margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
+
+
 .hud {
   display: flex;
   justify-content: space-between;
@@ -50,17 +57,17 @@ body {
 .hud-item {
   text-align: center;
 }
-
 .hud-label {
   font-size: 14px;
   color: #d1c4ff;
 }
-
 .hud-value {
   font-size: 28px;
   font-weight: bold;
   margin-top: 5px;
 }
+
+
 .word-section {
   text-align: center;
   margin: 30px 0;
@@ -79,7 +86,6 @@ body {
   border-radius: 8px;
   color: #ffb7ff;
 }
-
 .word-input {
   width: 100%;
   padding: 12px 14px;
@@ -89,6 +95,7 @@ body {
   font-size: 18px;
   margin-top: 10px;
 }
+
 .btn {
   padding: 12px 22px;
   margin: 10px;
@@ -96,7 +103,6 @@ body {
   font-size: 16px;
   font-weight: bold;
 }
-
 .primary {
   background: #d76bff;
   color: #fff;
@@ -105,17 +111,56 @@ body {
   background: #4c4c4c;
   color: #fff;
 }
-
 .ghost {
   background: transparent;
   border: 2px solid #ffffff;
   color: #fff;
 }
+
+
 .section-title {
-  margin-top: 10px;   
+  margin-top: 10px;
+  margin-bottom: 12px;
   font-size: 22px;
   font-weight: bold;
 }
+
+
+#top-score-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+}
+
+
+.score-item {
+  display: grid;
+  grid-template-columns: 50px 80px 80px; 
+  padding: 12px 16px;
+  margin: 8px 0;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffb7ff;
+  text-align: center;
+  column-gap: 10px; 
+  word-break: break-word; 
+}
+
+.score-rank {
+  justify-self: center;
+}
+
+.score-hits {
+  justify-self: center;
+}
+
+.score-percentage {
+  justify-self: center;
+}
+
 
 .score-summary {
   margin-top: 15px;
@@ -124,6 +169,8 @@ body {
   border-radius: 8px;
   text-align: center;
 }
+
+
 .modal {
   position: fixed;
   inset: 0;
@@ -132,11 +179,9 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .modal.hidden {
   display: none;
 }
-
 .modal-content {
   width: 90%;
   max-width: 400px;
@@ -145,231 +190,70 @@ body {
   border-radius: 10px;
   text-align: center;
 }
-
 .modal-actions {
   margin-top: 20px;
 }
-@media (max-width: 900px) {
 
-  .game-main {
-    max-width: 600px;
-    padding: 15px;
-  }
-
-  .hud {
-    gap: 10px;
-    padding: 12px;
-  }
-
-  .current-word {
-    font-size: 28px;
-  }
-
-  .word-input {
-    font-size: 16px;
-    padding: 10px 12px;
-  }
-}
-@media (max-width: 600px) {
-
-  .site-header {
-    padding: 20px 0;
-  }
-
-  .game-title {
-    font-size: 30px;
-  }
-
-  .game-tagline {
-    font-size: 14px;
-  }
-
-  .hud {
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
-
-  .hud-item {
-    width: 100%;
-  }
-
-  .current-word {
-    font-size: 24px;
-    padding: 12px 14px;
-  }
-
-  .word-input {
-    font-size: 16px;
-    padding: 10px;
-  }
-
-  .controls {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .btn {
-    width: 100%;
-    padding: 12px 0;
-  }
-
-  .modal-content {
-    width: 95%;
-    padding: 20px;
-  }
-}
-
-.up-jump {
-  animation: upJump 0.5s ease-out;
-}
-
-@keyframes upJump {
-  0% {
-    transform: translateY(0) scale(1);
-    filter: brightness(1);
-  }
-  40% {
-    transform: translateY(-12px) scale(1.05);
-    filter: brightness(1.4);
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    filter: brightness(1);
-  }
-}
-
-@media (max-width: 400px) {
-
-  .game-title {
-    font-size: 26px;
-  }
-
-  .current-word {
-    font-size: 20px;
-  }
-
-  .word-input {
-    font-size: 14px;
-  }
-  
-}
-
-@media (max-width: 900px) {
-  .page-layout {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sidebar {
-    width: 90%;
-    margin-top: 25px;
-  }
-
-  .game-main {
-    width: 90%;
-  }
-}
-
-/* Assignment */
 
 .page-layout {
-  display: flex;               
-  justify-content: center;     
-  align-items: flex-start;     
-  gap: 40px;                   
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
   width: 100%;
   margin-top: 20px;
 }
 
-
-
-.game-main {
-  flex: 1;
-  max-width: 850px;           
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 14px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
-}
-
-
-
 .sidebar {
   width: 300px;
   padding: 25px;
-  margin-top: -20px;     
+  margin-top: -20px;
   margin-right: 80px;
   background: rgba(0,0,0,0.45);
   border-radius: 16px;
   backdrop-filter: blur(10px);
   text-align: center;
   box-shadow: 0 0 25px rgba(0,0,0,0.5);
-
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-
-
-.sidebar .section-title {
-  margin-bottom: 12px;
-  font-size: 22px;
-  font-weight: bold;
+.up-jump {
+  animation: upJump 0.5s ease-out;
+}
+@keyframes upJump {
+  0% { transform: translateY(0) scale(1); filter: brightness(1); }
+  40% { transform: translateY(-12px) scale(1.05); filter: brightness(1.4); }
+  100% { transform: translateY(0) scale(1); filter: brightness(1); }
 }
 
 
-
-/* High Scores classes added（for displayTopScores in JS) */
-.score-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+@media (max-width: 900px) {
+  .game-main { max-width: 600px; padding: 15px; }
+  .hud { gap: 10px; padding: 12px; }
+  .current-word { font-size: 28px; }
+  .word-input { font-size: 16px; padding: 10px 12px; }
+  .page-layout { flex-direction: column; align-items: center; }
+  .sidebar { width: 90%; margin-top: 25px; }
+  .game-main { width: 90%; }
 }
 
-.score-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 12px 14px;
-    margin: 10px 0;
-    border-radius: 8px;
+@media (max-width: 600px) {
+  .site-header { padding: 20px 0; }
+  .game-title { font-size: 30px; }
+  .game-tagline { font-size: 14px; }
+  .hud { flex-direction: column; gap: 8px; text-align: center; }
+  .hud-item { width: 100%; }
+  .current-word { font-size: 24px; padding: 12px 14px; }
+  .word-input { font-size: 16px; padding: 10px; }
+  .controls { display: flex; flex-direction: column; gap: 10px; }
+  .btn { width: 100%; padding: 12px 0; }
+  .modal-content { width: 95%; padding: 20px; }
 }
 
-.score-rank {
-    font-size: 20px;
-    font-weight: bold;
-    color: #deb4de;
-    width: 40px;
-    text-align: center;
-    padding: 18px 0 0 0;
+@media (max-width: 400px) {
+  .game-title { font-size: 26px; }
+  .current-word { font-size: 20px; }
+  .word-input { font-size: 14px; }
 }
-
-.score-details {
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.score-date {
-    margin-top: 4px;
-    opacity: 0.6;
-    font-size: 12px;
-}
-
-.empty-score-msg {
-    text-align: center;
-    opacity: 0.7;
-    padding: 10px;
-}
-
-.date-small {
-    font-size: 14px;
-    opacity: 0.7;
-    white-space: nowrap;
-}
-
-
-
