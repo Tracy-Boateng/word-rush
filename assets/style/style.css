@@ -31,3 +31,67 @@ body {
   font-size: 18px;
   opacity: 0.85;
 }
+
+
+.game-main {
+  flex: 1;
+  width: 100%;
+  max-width: 850px;
+  padding: 30px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.hud-item {
+  text-align: center;
+}
+.hud-label {
+  font-size: 14px;
+  color: #d1c4ff;
+}
+.hud-value {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+
+.word-section {
+  text-align: center;
+  margin: 30px 0;
+}
+.instruction {
+  font-size: 16px;
+  margin-bottom: 15px;
+  opacity: 0.9;
+}
+.current-word {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 20px 0;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #ffb7ff;
+}
+.word-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #222;
+  font-size: 18px;
+  margin-top: 10px;
+}
