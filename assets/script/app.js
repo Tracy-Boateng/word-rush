@@ -45,7 +45,7 @@ const finalHits = select('#final-hits');
 const finalAccuracy = select('#final-accuracy');
 const modalRestartBtn = select('#modal-restart-btn');
 const closeModalBtn = select('#close-modal-btn');
-
+const topScoreList = select('#top-score-list'); //new feature section
 // 90 Words Array//
 const words =
 
@@ -72,6 +72,10 @@ bgm.loop = true;
 
 const correct = new Audio('./assets/media/audio/correct.mp3');
 const wrong = new Audio('./assets/media/audio/wrong.mp3');
+
+//declare an empty array to store the highscore players
+let highScores = [];
+const MAX_SCORES = 10; 
 
 // Shuffle function//
 let shuffle = function(array) {
@@ -144,15 +148,12 @@ listen(restartBtn, "click", function () {
 
 
 
-
-
 listen(wordInput, "keydown", function (keyEnter) {
     if (keyEnter.key === "Enter") {
         checkInput();
     }
 }); 
 
-listen(wordInput, "input", autoCheck);
 
 
 function autoCheck() {
@@ -237,14 +238,20 @@ function gameOver() {
     const now = new Date().toLocaleString();
     const lastScore = new Score(now, hits, finalAcc);
 
-    lastScoreBox.innerHTML =
-        `Date: ${lastScore.date}&nbsp&nbsp&nbsp&nbsp&nbsp;  Hits: ${lastScore.hits}&nbsp&nbsp&nbsp&nbsp&nbsp;  Accuracy: ${lastScore.percentage}%`;
+    lastScoreBox.innerHTML =`
+        <div><strong>Hits:</strong> ${lastScore.hits}</div>
+        <div><strong>Accuracy:</strong> ${lastScore.percentage}%</div>
+        <div><strong>Date:</strong> <span class="date-small">${lastScore.date}</span></div>
+        `; //Rearrange the arrangments of last game score information
+
+    addHighScore(lastScore);//new added to run in addHighscore fun
 
     restartBtn.disabled = false;
 
     bgm.pause();
     bgm.currentTime = 0;
     gameOverModal.classList.remove("hidden");
+
 }
 
 listen(closeModalBtn, "click", function () {
@@ -269,6 +276,77 @@ listen(muteBtn, "click", function () {
     }
 });
 
+
+//new functions:
+
+// Loading the strings
+function loadHighScores() {
+    const stored = localStorage.getItem('wordRushHighScores');
+
+    try {
+        highScores = stored ? JSON.parse(stored) : [];
+    } catch (error) {
+        console.error("Some errors happened during the loading:", error);
+        highScores = [];
+    }
+}
+
+//save 10 highscore to localStorage
+
+function saveHighScores() {
+    highScores.sort((a, b) => {
+        if (b.hits !== a.hits) {
+            return b.hits - a.hits;
+        }
+        return parseFloat(b.percentage) - parseFloat(a.percentage);
+    });
+    
+    highScores = highScores.slice(0, MAX_SCORES);
+    localStorage.setItem('wordRushHighScores', JSON.stringify(highScores));
+}
+
+//Add scores to high score arrays when games over(parameter accepted through gameover function ())
+function addHighScore(scoreObject) {
+    const plainScore = {
+        date: scoreObject.date,
+        hits: scoreObject.hits,
+        percentage: scoreObject.percentage
+    };
+    
+    highScores.push(plainScore);
+    
+    saveHighScores();
+    displayTopScores();
+}
+
+// To display Top scores
+function displayTopScores() {
+    topScoreList.innerHTML = '';
+
+    if (highScores.length === 0) {
+        topScoreList.innerHTML = `<li class="empty-score-msg">There is no recording yet! </li>`;
+        return;
+    }
+
+    highScores.forEach((score, index) => {
+        const li = document.createElement('li');
+        li.classList.add('score-item');
+
+        li.innerHTML = `
+            <span class="score-rank">#${index + 1}</span>
+            <div class="score-details">
+                <div><strong>hits:</strong> ${score.hits}</div>
+                <div><strong>percentage:</strong> ${score.percentage}%</div>
+                <div class="score-date">${score.date}</div>
+            </div>
+        `;
+
+        topScoreList.appendChild(li);
+    });
+}
+
+loadHighScores();
+displayTopScores();
 
 
 
