@@ -34,6 +34,7 @@ At the end, the game shows your score, including how many words you got right an
 
 ## Live Link :
 https://tracy-boateng.github.io/word-rush/
+https://tracy-boateng.github.io/word-rush/
 ## Assignment -3
 updated Link :
 
